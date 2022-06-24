@@ -6,6 +6,18 @@ query LaunchesQuery {
     Buildings {
       name
       id
+      meetingRooms {
+        name
+        id
+        floor
+        meetings {
+          id
+          title
+          date
+          startTime
+          endTime
+        }
+      }
     }
 }
 `;

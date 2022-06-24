@@ -5,16 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
+import client from "./graphql";
 
 window.store = store;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const client = new ApolloClient({
-  uri: 'http://smart-meeting.herokuapp.com/',
-  // uri: 'http://localhost:5000/graphql',
-  cache: new InMemoryCache()
-});
+
 
 root.render(
   <React.StrictMode>
