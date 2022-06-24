@@ -8,7 +8,6 @@ import OverviewPage from './pages/OverviewPage';
 import { setBuildings } from './slice/building';
 import { setMeeting } from './slice/meeting';
 import { setMeetingRoom } from './slice/meetingRoom';
-import { useQuery , gql} from '@apollo/client'
 import craftService from './services/craftService';
 
 const transformData = (response) => {
@@ -22,10 +21,8 @@ const transformData = (response) => {
       id: buildingId,
       meetingRooms: mRooms,
     } = building;
-    console.log('mRooms', mRooms);
     buildings.push({ buildingId, buildingName });
     mRooms.forEach((meetingRoom) => {
-      console.log('meetingRoom', meetingRoom);
       const {
         name: meetingRoomName,
         id: meetingRoomId,
