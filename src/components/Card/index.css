@@ -1,0 +1,8 @@
+.card-container{
+    padding: 1rem;
+    margin: 0.2rem;
+    border: 1px solid black;
+}
+.title, .subtitle1, .subtitle2{
+    margin: 0.5rem;
+}

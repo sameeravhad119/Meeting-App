@@ -1,0 +1,11 @@
+.button-container{
+    padding: 0.5rem;
+}
+.button-container button{
+    background-color: rgb(94, 158, 242);
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0.5rem;
+    cursor: pointer;
+}
