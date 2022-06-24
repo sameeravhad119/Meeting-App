@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -18,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "schema:download": "npx apollo service:download --endpoint=http://smart-meeting.herokuapp.com/graphql ./src/graphql/graphql-schema.json",
+    "schema:generate-watch" : "npx apollo codegen:generate --localSchemaFile=./src/graphql/graphql-schema.json --target=typescript --tagName=gql --watch"
   },
   "eslintConfig": {
     "extends": [
