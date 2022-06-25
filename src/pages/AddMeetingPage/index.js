@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useSelector} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import AvailableRooms from "../../components/AvailableRooms";
 import Button from "../../components/Button";
@@ -8,22 +8,35 @@ import Heading from "../../components/Heading";
 import InputText from "../../components/InputText";
 import Select from "../../components/Select";
 import { buildingSelector } from "../../slice/building";
-import { todaysDate } from "../../utils/helper";
+import { selectedMeetingRoomSelector, setSelectedMeetingRoom } from "../../slice/selectedMeetingRoom";
 import "./index.css";
 
 const AddMeetingPage = () => {
   const buildings = useSelector(buildingSelector);
-  
-  const [description, setDescription] = useState('');
-  const [selectedBuilding,setSelectedBuilding] = useState('');
-  const [selectedMeetingDate, setSelectedMeetingDate] = useState(todaysDate("yyyy-MM-dd"));
-  const [startTime, setStartTime] = useState('00:00');
-  const [endTime, setEndTime] = useState('00:00');
+  const selectedMeetingRoom = useSelector(selectedMeetingRoomSelector);
+  const dispatch = useDispatch();
+  console.log('selectedMeetingRoom', selectedMeetingRoom);
+  const [description, setDescription] = useState(selectedMeetingRoom.description);
+  const [selectedBuilding,setSelectedBuilding] = useState(selectedMeetingRoom.selectedBuilding);
+  const [selectedMeetingDate, setSelectedMeetingDate] = useState(selectedMeetingRoom.selectedMeetingDate);
+  const [startTime, setStartTime] = useState(selectedMeetingRoom.startTime);
+  const [endTime, setEndTime] = useState(selectedMeetingRoom.endTime);
 
   const buildingOption = buildings.map(({buildingName, buildingId})=>({label: buildingName, value:buildingId}));
   const navigate= useNavigate();
 
   const handleClick = (e) => {
+     dispatch(
+       setSelectedMeetingRoom({
+         description: description,
+         selectedBuilding: selectedBuilding,
+         selectedMeetingDate: selectedMeetingDate,
+         startTime: startTime,
+         endTime: endTime,
+        //  meetingRoomId: "",
+        //  floor: "",
+       })
+     );
      navigate('/freeRooms'); 
   }
 
