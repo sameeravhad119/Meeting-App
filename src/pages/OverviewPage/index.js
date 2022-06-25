@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import { useNavigate } from 'react-router-dom';
+import { buildingSelector } from "../../slice/building";
 
 const OverviewPage = () => {
   const navigate = useNavigate();
-  const buildings = useSelector(state=> state.buildings.all);
+  const buildings = useSelector(buildingSelector);
   const meetingRooms = useSelector(state=> state.meetingRooms.all);
   const meetings = useSelector(state=> state.buildings.all);
 
@@ -23,7 +24,7 @@ const OverviewPage = () => {
   const notAvailableRooms= [1,2,3,4];
 
   const handleClick = (e) => { 
-     navigate('addMeeting');
+     navigate('/addMeeting');
   }
 
   return (

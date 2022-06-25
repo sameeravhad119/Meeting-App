@@ -17,4 +17,6 @@ export const buildingSlice = createSlice({
 
 export const {setBuildings} = buildingSlice.actions;
 
+export const buildingSelector = state=> state.buildings.all
+
 export default buildingSlice.reducer;

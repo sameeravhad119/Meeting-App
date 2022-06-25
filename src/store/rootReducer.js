@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
     buildings : buildingReducer,
     meetingRooms: meetingRoomReducer,
     meetings: meetingReducer
+    
 });
 
 export default rootReducer;
