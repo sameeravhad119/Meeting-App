@@ -78,7 +78,6 @@ const FreeRoomsPage = () => {
           const {meetingRoomName, buildingId, floor, meetingRoomId} = room;
           const {buildingName}= buildings.find(building=>building.buildingId === buildingId) || {};
           return(
-            <>
             <Card
               key={meetingRoomName}
               title={meetingRoomName}
@@ -90,8 +89,6 @@ const FreeRoomsPage = () => {
               }
               onClick={e=> handleClick(room)}
             />
-            </>
-
           )
         })
       }
