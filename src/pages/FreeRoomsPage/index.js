@@ -11,6 +11,7 @@ import { buildingSelector } from '../../slice/building';
 import Heading from '../../components/Heading';
 import cls from 'classnames';
 import Button from '../../components/Button';
+import craftService from '../../services/craftService';
 
 const FreeRoomsPage = () => {
   const dispatch= useDispatch();
@@ -46,6 +47,16 @@ const FreeRoomsPage = () => {
         meetingRoomId : selectedFreeRoom.meetingRoomId,
         floor : selectedFreeRoom.floor
        }))
+
+       craftService.addMeeting({
+        "id": 1,
+        "title": "Booked for Party",
+      "date": "1/07/2022",
+      "startTime": "21:00",
+      "endTime": "22:00",
+      "meetingRoomId": 1
+      })
+
   }
 
   console.log('scheduledMeetingsInThatBuilding', scheduledMeetingsInThatBuilding);
