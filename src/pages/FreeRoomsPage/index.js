@@ -12,9 +12,11 @@ import Heading from '../../components/Heading';
 import cls from 'classnames';
 import Button from '../../components/Button';
 import craftService from '../../services/craftService';
+import { useNavigate } from 'react-router-dom';
 
 const FreeRoomsPage = () => {
   const dispatch= useDispatch();
+  const navigate= useNavigate();
   const buildings= useSelector(buildingSelector);//all buildings
   const rooms= useSelector(meetingRoomSelector);//all rooms
   const meetings= useSelector(meetingSelector);//all meeting
@@ -48,15 +50,20 @@ const FreeRoomsPage = () => {
         floor : selectedFreeRoom.floor
        }))
 
-       craftService.addMeeting({
+      let d= format(new Date(selectedMeetingRoom.selectedMeetingDate),"dd/MM/yyyy");
+      console.log('d', d);
+      let obj={
         "id": 1,
-        "title": "Booked for Party",
-      "date": "1/07/2022",
-      "startTime": "21:00",
-      "endTime": "22:00",
-      "meetingRoomId": 1
+        "title": selectedMeetingRoom.description,
+        "date": d,//"1/07/2022",
+        "startTime": selectedMeetingRoom.startTime,
+        "endTime": selectedMeetingRoom.endTime,
+        "meetingRoomId": 1//selectedFreeRoom.meetingRoomId
+      };
+      console.log('obj', obj);
+      craftService.addMeeting(obj).then(res=>{
+        navigate("/");
       })
-
   }
 
   console.log('scheduledMeetingsInThatBuilding', scheduledMeetingsInThatBuilding);
@@ -73,6 +80,7 @@ const FreeRoomsPage = () => {
           return(
             <>
             <Card
+              key={meetingRoomName}
               title={meetingRoomName}
               subTitle1={buildingName}
               subTitle2={`floor ${floor}`}

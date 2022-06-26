@@ -10,7 +10,7 @@ class CraftService {
       if(!response || !response.data){
         throw new Error('Can not get Meeting Info.')
       }
-      response= allData;//JSON.parse(allData); 
+      // response= allData;//JSON.parse(allData); 
       console.log(' c response', response);
       return response.data;
     } catch (err) {
@@ -27,9 +27,10 @@ class CraftService {
         throw new Error('Can not get Meeting Info.')
       }
       response= allData;//JSON.parse(allData); 
-      console.log(' add meeting response', response);
+      console.log('add meeting response', response);
       return response.data;
     } catch (err) {
+      console.log('error');
         throw err;
     }
   }
