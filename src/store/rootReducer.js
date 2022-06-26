@@ -9,6 +9,7 @@ const rootReducer = combineReducers({
     buildings : buildingReducer,
     meetingRooms: meetingRoomReducer,
     meetings: meetingReducer,
+    
     availbleRooms: availbleRoomsReducer, 
     selectedMeetingRoom: selectedMeetingRoomReducer
 });

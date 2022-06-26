@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, isEqual } from "date-fns";
 
 export const getTodaysDate = (dateFormat = "MM-dd-yyyy") => {
   const date = format(new Date(), dateFormat);
@@ -13,6 +13,13 @@ export const getCurrentTime = () => {
   min= min.length=== 1 ? '0'+ min : min;
   return hour+':'+min;
 };
+
+export const areDatesEqual = (date1, date2)=>{
+  const [d1, m1, y1] = date1.split('/');
+  const [d2, m2, y2] = date2.split('/');
+  return isEqual(new Date(d1, m1, y1), new Date(d2, m2, y2))
+}
+
 
 export const isTimeInBeetween = (startTime,endTime,checkTime)=>{//10.30 , 11 , 10: 30  
   const [sH,sM]= startTime.split(':').map(t=>Number(t));

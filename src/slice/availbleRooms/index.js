@@ -17,4 +17,5 @@ export const availbleRoomsSlice = createSlice({
 
 export const { setAvailbleRooms } = availbleRoomsSlice.actions;
 
+export const availbleRoomsSelector= state=> state.availbleRooms.all;
 export default availbleRoomsSlice.reducer;

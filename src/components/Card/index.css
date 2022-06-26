@@ -3,6 +3,9 @@
     margin: 0.2rem;
     border: 1px solid black;
 }
+.card-container.active{
+    border: 2px solid blue;
+}
 .title, .subtitle1, .subtitle2{
     margin: 0.5rem;
 }

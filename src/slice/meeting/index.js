@@ -17,4 +17,6 @@ export const meetingSlice = createSlice({
 
 export const { setMeeting } = meetingSlice.actions;
 
+export const meetingSelector = state => state.meetings.all;
+
 export default meetingSlice.reducer;

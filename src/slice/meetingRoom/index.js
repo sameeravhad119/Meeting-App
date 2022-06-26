@@ -17,4 +17,6 @@ export const meetingRoomSlice = createSlice({
 
 export const { setMeetingRoom } = meetingRoomSlice.actions;
 
+export const meetingRoomSelector = state => state.meetingRooms.all;
+
 export default meetingRoomSlice.reducer;
