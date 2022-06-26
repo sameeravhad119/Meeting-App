@@ -2,148 +2,68 @@
   "data": {
     "Buildings": [
       {
-        "name": "Building 8",
+        "name": "Building 1",
         "id": 1,
         "meetingRooms": [
           {
-            "name": "Punjab",
+            "name": "Virat",
             "id": 1,
-            "floor": 7,
+            "floor": 0,
             "meetings": [
               {
                 "id": 1,
                 "title": "Booked for Interview",
-                "date": "24/06/2022",
-                "startTime": "19:00",
-                "endTime": "20:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 2,
-                "title": "Booked for Interview",
-                "date": "24/06/2022",
-                "startTime": "20:00",
-                "endTime": "21:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 3,
-                "title": "Booked for Interview",
-                "date": "24/06/2022",
-                "startTime": "21:00",
-                "endTime": "22:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 4,
-                "title": "Booked for Interview",
-                "date": "24/06/2022",
-                "startTime": "23:00",
-                "endTime": "24:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 5,
-                "title": "Booked for Interview",
-                "date": "25/06/2022",
-                "startTime": "00:00",
-                "endTime": "1:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 6,
-                "title": "Booked for Interview",
-                "date": "25/06/2022",
-                "startTime": "1:00",
-                "endTime": "2:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 7,
-                "title": "Booked for Interview",
-                "date": "25/06/2022",
-                "startTime": "2:00",
-                "endTime": "3:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 8,
-                "title": "Booked for Interview",
-                "date": "25/06/2022",
-                "startTime": "3:00",
-                "endTime": "4:00",
+                "date": "26/06/2022",
+                "startTime": "10:00",
+                "endTime": "11:00",
                 "__typename": "Meeting"
               }
             ],
             "__typename": "MeetingRoom"
           },
           {
-            "name": "Rajasthan",
+            "name": "Sachin",
             "id": 2,
-            "floor": 5,
+            "floor": 1,
             "meetings": [
               {
                 "id": 1,
                 "title": "Booked for Interview",
-                "date": "24/06/2022",
-                "startTime": "19:00",
-                "endTime": "20:00",
+                "date": "26/06/2022",
+                "startTime": "16:00",
+                "endTime": "17:00",
                 "__typename": "Meeting"
-              },
+              }
+            ],
+            "__typename": "MeetingRoom"
+          },
+          {
+            "name": "Ricky",
+            "id": 3,
+            "floor": 1,
+            "meetings":[
               {
-                "id": 2,
+                "id": 1,
                 "title": "Booked for Interview",
-                "date": "24/06/2022",
-                "startTime": "20:00",
-                "endTime": "21:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 3,
-                "title": "Booked for Interview",
-                "date": "24/06/2022",
-                "startTime": "21:00",
-                "endTime": "22:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 4,
-                "title": "Booked for Interview",
-                "date": "24/06/2022",
-                "startTime": "23:00",
-                "endTime": "24:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 5,
-                "title": "Booked for Interview",
-                "date": "25/06/2022",
+                "date": "26/06/2022",
                 "startTime": "00:00",
                 "endTime": "1:00",
                 "__typename": "Meeting"
-              },
+              }
+            ],
+            "__typename": "MeetingRoom"
+          },
+          {
+            "name": "Mahi",
+            "id": 4,
+            "floor": 2,
+            "meetings":[
               {
-                "id": 6,
+                "id": 1,
                 "title": "Booked for Interview",
-                "date": "25/06/2022",
-                "startTime": "1:00",
-                "endTime": "2:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 7,
-                "title": "Booked for Interview",
-                "date": "25/06/2022",
-                "startTime": "2:00",
-                "endTime": "3:00",
-                "__typename": "Meeting"
-              },
-              {
-                "id": 8,
-                "title": "Booked for Interview",
-                "date": "25/06/2022",
-                "startTime": "3:00",
-                "endTime": "4:00",
+                "date": "26/06/2022",
+                "startTime": "23:00",
+                "endTime": "00:00",
                 "__typename": "Meeting"
               }
             ],
@@ -153,160 +73,185 @@
         "__typename": "Building"
       },
       {
-        "name": "Building 4",
+        "name": "Building 2",
         "id": 2,
         "meetingRooms": [
             {
-              "name": "Mahi",
+              "name": "Pune",
               "id": 1,
-              "floor": 1,
+              "floor": 0,
               "meetings": [
                 {
                   "id": 1,
                   "title": "Booked for Interview",
-                  "date": "24/06/2022",
-                  "startTime": "19:00",
-                  "endTime": "20:00",
-                  "__typename": "Meeting"
-                },
-                {
-                  "id": 2,
-                  "title": "Booked for Interview",
-                  "date": "24/06/2022",
-                  "startTime": "20:00",
-                  "endTime": "21:00",
-                  "__typename": "Meeting"
-                },
-                {
-                  "id": 3,
-                  "title": "Booked for Interview",
-                  "date": "24/06/2022",
-                  "startTime": "21:00",
-                  "endTime": "22:00",
-                  "__typename": "Meeting"
-                },
-                {
-                  "id": 4,
-                  "title": "Booked for Interview",
-                  "date": "24/06/2022",
-                  "startTime": "23:00",
-                  "endTime": "24:00",
-                  "__typename": "Meeting"
-                },
-                {
-                  "id": 5,
-                  "title": "Booked for Interview",
-                  "date": "25/06/2022",
-                  "startTime": "00:00",
-                  "endTime": "1:00",
-                  "__typename": "Meeting"
-                },
-                {
-                  "id": 6,
-                  "title": "Booked for Interview",
-                  "date": "25/06/2022",
+                  "date": "26/06/2022",
                   "startTime": "1:00",
                   "endTime": "2:00",
-                  "__typename": "Meeting"
-                },
-                {
-                  "id": 7,
-                  "title": "Booked for Interview",
-                  "date": "25/06/2022",
-                  "startTime": "2:00",
-                  "endTime": "3:00",
-                  "__typename": "Meeting"
-                },
-                {
-                  "id": 8,
-                  "title": "Booked for Interview",
-                  "date": "25/06/2022",
-                  "startTime": "3:00",
-                  "endTime": "4:00",
                   "__typename": "Meeting"
                 }
               ],
               "__typename": "MeetingRoom"
             },
             {
-                "name": "Banglore",
+                "name": "Mumbai",
                 "id": 2,
-                "floor": 5,
+                "floor": 1,
                 "meetings": [
                   {
                     "id": 1,
                     "title": "Booked for Interview",
-                    "date": "24/06/2022",
-                    "startTime": "19:00",
-                    "endTime": "20:00",
-                    "__typename": "Meeting"
-                  },
-                  {
-                    "id": 2,
-                    "title": "Booked for Interview",
-                    "date": "24/06/2022",
-                    "startTime": "20:00",
-                    "endTime": "21:00",
-                    "__typename": "Meeting"
-                  },
-                  {
-                    "id": 3,
-                    "title": "Booked for Interview",
-                    "date": "24/06/2022",
-                    "startTime": "21:00",
-                    "endTime": "22:00",
-                    "__typename": "Meeting"
-                  },
-                  {
-                    "id": 4,
-                    "title": "Booked for Interview",
-                    "date": "24/06/2022",
-                    "startTime": "23:00",
-                    "endTime": "24:00",
-                    "__typename": "Meeting"
-                  },
-                  {
-                    "id": 5,
-                    "title": "Booked for Interview",
-                    "date": "25/06/2022",
-                    "startTime": "00:00",
-                    "endTime": "1:00",
-                    "__typename": "Meeting"
-                  },
-                  {
-                    "id": 6,
-                    "title": "Booked for Interview",
-                    "date": "25/06/2022",
-                    "startTime": "1:00",
-                    "endTime": "2:00",
-                    "__typename": "Meeting"
-                  },
-                  {
-                    "id": 7,
-                    "title": "Booked for Interview",
-                    "date": "25/06/2022",
-                    "startTime": "2:00",
-                    "endTime": "3:00",
-                    "__typename": "Meeting"
-                  },
-                  {
-                    "id": 8,
-                    "title": "Booked for Interview",
-                    "date": "25/06/2022",
-                    "startTime": "3:00",
-                    "endTime": "4:00",
+                    "date": "26/06/2022",
+                    "startTime": "17:5",
+                    "endTime": "19:15",
                     "__typename": "Meeting"
                   }
                 ],
                 "__typename": "MeetingRoom"
-              }
+            },
+            {
+              "name": "Chennai",
+              "id": 3,
+              "floor": 3,
+              "meetings":[
+                {
+                  "id": 1,
+                  "title": "Booked for Interview",
+                  "date": "26/06/2022",
+                  "startTime": "10:30",
+                  "endTime": "11:30",
+                  "__typename": "Meeting"
+                }
+              ],
+              "__typename": "MeetingRoom"
+            }
           ],
         "__typename": "Building"
       },
       {
-        "name": "Building 6",
+        "name": "Building 3",
         "id": 3,
-        "meetingRooms": [],
+        "meetingRooms": [
+          {
+            "name": "Banana",
+            "id": 1,
+            "floor": 0,
+            "meetings": [
+              {
+                "id": 1,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "19:15",
+                "endTime": "11:45",
+                "__typename": "Meeting"
+              }
+            ],
+            "__typename": "MeetingRoom"
+          },
+          {
+            "name": "Apple",
+            "id": 2,
+            "floor": 1,
+            "meetings": [
+              {
+                "id": 1,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "16:30",
+                "endTime": "19:30",
+                "__typename": "Meeting"
+              }
+            ],
+            "__typename": "MeetingRoom"
+          },
+          {
+            "name": "Mango",
+            "id": 3,
+            "floor": 2,
+            "meetings": [
+              {
+                "id": 1,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "__typename": "Meeting"
+              },
+              {
+                "id": 2,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "__typename": "Meeting"
+              },
+              {
+                "id": 3,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "21:00",
+                "endTime": "22:00",
+                "__typename": "Meeting"
+              },
+              {
+                "id": 4,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "23:00",
+                "endTime": "24:00",
+                "__typename": "Meeting"
+              },
+              {
+                "id": 5,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "00:00",
+                "endTime": "1:00",
+                "__typename": "Meeting"
+              },
+              {
+                "id": 6,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "1:00",
+                "endTime": "2:00",
+                "__typename": "Meeting"
+              },
+              {
+                "id": 7,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "2:00",
+                "endTime": "3:00",
+                "__typename": "Meeting"
+              },
+              {
+                "id": 8,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "3:00",
+                "endTime": "4:00",
+                "__typename": "Meeting"
+              }
+            ],
+            "__typename": "MeetingRoom"
+          },
+          {
+            "name": "Pineapple",
+            "id": 4,
+            "floor": 2,
+            "meetings": [
+              {
+                "id": 1,
+                "title": "Booked for Interview",
+                "date": "26/06/2022",
+                "startTime": "4:00",
+                "endTime": "5:00",
+                "__typename": "Meeting"
+              }
+            ],
+            "__typename": "MeetingRoom"
+          }
+        ],
         "__typename": "Building"
       }
     ]

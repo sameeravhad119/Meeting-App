@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { todaysDate } from "../../utils/helper";
+import { getTodaysDate } from "../../utils/helper";
 
 const initialState = {
     description: '',
     selectedBuilding: '',
-    selectedMeetingDate: todaysDate("yyyy-MM-dd"),
+    selectedMeetingDate: getTodaysDate("yyyy-MM-dd"),
     startTime: '00:00',
     endTime: '00:00',
     meetingRoomId: '',

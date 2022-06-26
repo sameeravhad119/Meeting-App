@@ -15,7 +15,7 @@ const AddMeetingPage = () => {
   const buildings = useSelector(buildingSelector);
   const selectedMeetingRoom = useSelector(selectedMeetingRoomSelector);
   const dispatch = useDispatch();
-  console.log('selectedMeetingRoom', selectedMeetingRoom);
+  
   const [description, setDescription] = useState(selectedMeetingRoom.description);
   const [selectedBuilding,setSelectedBuilding] = useState(selectedMeetingRoom.selectedBuilding);
   const [selectedMeetingDate, setSelectedMeetingDate] = useState(selectedMeetingRoom.selectedMeetingDate);
