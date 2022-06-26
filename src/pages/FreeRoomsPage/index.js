@@ -52,8 +52,11 @@ const FreeRoomsPage = () => {
 
       let d= format(new Date(selectedMeetingRoom.selectedMeetingDate),"dd/MM/yyyy");
       console.log('d', d);
+
+      var max32 = Math.pow(2, 32) - 1
+      var uuid = Math.floor(Math.random() * max32);
       let obj={
-        "id": 1,
+        "id": uuid,
         "title": selectedMeetingRoom.description,
         "date": d,//"1/07/2022",
         "startTime": selectedMeetingRoom.startTime,

@@ -1,6 +1,7 @@
 import client from "../../graphql";
 import { ADD_MEETING, GET_ALL_MEETING_INFO } from "./queries";
 import allData from '../../sample/allData.json';
+
 class CraftService {
   async getAllMeetingInfo() {
     try {
@@ -18,6 +19,7 @@ class CraftService {
     }
   }
   async addMeeting(variables) {
+    
     try {
       let response = await client.mutate({
         mutation: ADD_MEETING,
