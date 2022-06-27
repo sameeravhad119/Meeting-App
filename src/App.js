@@ -9,45 +9,7 @@ import { setBuildings } from './slice/building';
 import { setMeeting } from './slice/meeting';
 import { setMeetingRoom } from './slice/meetingRoom';
 import craftService from './services/craftService';
-
-const transformData = (response) => {
-  let buildings = [];
-  let meetingsRooms = [];
-  let meetings = [];
-  
-  response.forEach((building) => {
-    const {
-      name: buildingName,
-      id: buildingId,
-      meetingRooms: mRooms,
-    } = building;
-    buildings.push({ buildingId, buildingName });
-    mRooms.forEach((meetingRoom) => {
-      const {
-        name: meetingRoomName,
-        id: meetingRoomId,
-        floor,
-        meetings: mtings,
-      } = meetingRoom;
-      meetingsRooms.push({ meetingRoomName, meetingRoomId, buildingId, floor });
-      mtings.forEach((meeting) => {
-        const { id: meetingId, title, date, startTime, endTime } = meeting;
-        meetings.push({
-          meetingId,
-          title,
-          date,
-          startTime,
-          endTime,
-          buildingId,
-          floor,
-          meetingRoomId,
-        });
-      });
-    });
-  });
-  return { buildings, meetingsRooms, meetings };
-};
-
+import { transformData } from './utils/helper';
 
 function App() {
   const dispatch = useDispatch(); 

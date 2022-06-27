@@ -5,7 +5,7 @@ import { meetingSelector } from '../../slice/meeting';
 import { meetingRoomSelector } from '../../slice/meetingRoom';
 import { selectedMeetingRoomSelector, setSelectedMeetingRoom } from '../../slice/selectedMeetingRoom';
 import {format} from 'date-fns';
-import { areDatesEqual } from '../../utils/helper';
+import { areDatesEqual, getUniqueId } from '../../utils/helper';
 import Card from '../../components/Card';
 import { buildingSelector } from '../../slice/building';
 import Heading from '../../components/Heading';
@@ -13,6 +13,8 @@ import cls from 'classnames';
 import Button from '../../components/Button';
 import craftService from '../../services/craftService';
 import { useNavigate } from 'react-router-dom';
+import './index.css';
+
 
 const FreeRoomsPage = () => {
   const dispatch= useDispatch();
@@ -44,37 +46,38 @@ const FreeRoomsPage = () => {
     })
   }
 
+  const addMeeting = () => { 
+    let date = format(new Date(selectedMeetingRoom.selectedMeetingDate),"dd/MM/yyyy");
+    
+    let obj={
+      "id": getUniqueId(),
+      "title": selectedMeetingRoom.description,
+      "date": date,//"1/07/2022",
+      "startTime": selectedMeetingRoom.startTime,
+      "endTime": selectedMeetingRoom.endTime,
+      "meetingRoomId": 1//selectedFreeRoom.meetingRoomId
+    };
+    console.log('obj', obj);
+    craftService.addMeeting(obj).then(res=>{
+      navigate("/");
+    })
+   }
+
   const handleNext = () => { 
        dispatch(setSelectedMeetingRoom({
         meetingRoomId : selectedFreeRoom.meetingRoomId,
         floor : selectedFreeRoom.floor
        }))
-
-      let d= format(new Date(selectedMeetingRoom.selectedMeetingDate),"dd/MM/yyyy");
-      console.log('d', d);
-
-      var max32 = Math.pow(2, 32) - 1
-      var uuid = Math.floor(Math.random() * max32);
-      let obj={
-        "id": uuid,
-        "title": selectedMeetingRoom.description,
-        "date": d,//"1/07/2022",
-        "startTime": selectedMeetingRoom.startTime,
-        "endTime": selectedMeetingRoom.endTime,
-        "meetingRoomId": 1//selectedFreeRoom.meetingRoomId
-      };
-      console.log('obj', obj);
-      craftService.addMeeting(obj).then(res=>{
-        navigate("/");
-      })
+       addMeeting();    
   }
 
   console.log('scheduledMeetingsInThatBuilding', scheduledMeetingsInThatBuilding);
 
   //to do
   const availbleRooms= roomsFilterByBuildingId;
+
   return (
-    <div>
+    <div className='free-room-page-container'>
       <Heading title={"Please select one of the Free Rooms"} />
       {
         availbleRooms.map(room=>{

@@ -47,7 +47,7 @@ const AddMeetingPage = () => {
 
   return (
     <div className="add-meeting-page-container">
-      {/* {!showAvailableRooms ? ( */}
+      
         <>
           <Heading title={"Add Meeting"} />
           <InputText 
@@ -111,9 +111,7 @@ const AddMeetingPage = () => {
           />
           <Button label={"Next"} onClick={handleClick} />
         </>
-      {/* ) : (
-        <AvailableRooms />
-      )} */}
+      
     </div>
   );
 };

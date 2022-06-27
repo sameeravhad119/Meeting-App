@@ -20,7 +20,6 @@ export const areDatesEqual = (date1, date2)=>{
   return isEqual(new Date(d1, m1, y1), new Date(d2, m2, y2))
 }
 
-
 export const isTimeInBeetween = (startTime,endTime,checkTime)=>{//10.30 , 11 , 10: 30  
   const [sH,sM]= startTime.split(':').map(t=>Number(t));
   const [eH,eM]= endTime.split(':').map(t=>Number(t));
@@ -81,4 +80,48 @@ export const isTimeInBeetween = (startTime,endTime,checkTime)=>{//10.30 , 11 , 1
        return false;
     }
   }
+}
+
+export const transformData = (response) => {
+  let buildings = [];
+  let meetingsRooms = [];
+  let meetings = [];
+  
+  response.forEach((building) => {
+    const {
+      name: buildingName,
+      id: buildingId,
+      meetingRooms: mRooms,
+    } = building;
+    buildings.push({ buildingId, buildingName });
+    mRooms.forEach((meetingRoom) => {
+      const {
+        name: meetingRoomName,
+        id: meetingRoomId,
+        floor,
+        meetings: mtings,
+      } = meetingRoom;
+      meetingsRooms.push({ meetingRoomName, meetingRoomId, buildingId, floor });
+      mtings.forEach((meeting) => {
+        const { id: meetingId, title, date, startTime, endTime } = meeting;
+        meetings.push({
+          meetingId,
+          title,
+          date,
+          startTime,
+          endTime,
+          buildingId,
+          floor,
+          meetingRoomId,
+        });
+      });
+    });
+  });
+  return { buildings, meetingsRooms, meetings };
+};
+
+export const getUniqueId = ()=>{
+  var max32 = Math.pow(2, 32) - 1
+  var uuid = Math.floor(Math.random() * max32);
+  return uuid;
 }
