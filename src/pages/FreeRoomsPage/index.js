@@ -50,7 +50,7 @@ const FreeRoomsPage = () => {
     let date = format(new Date(selectedMeetingRoom.selectedMeetingDate),"dd/MM/yyyy");
     
     let obj={
-      "id": getUniqueId(),
+      "id": 1,//getUniqueId(),
       "title": selectedMeetingRoom.description,
       "date": date,//"1/07/2022",
       "startTime": selectedMeetingRoom.startTime,

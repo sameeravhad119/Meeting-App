@@ -12,28 +12,6 @@ import craftService from './services/craftService';
 import { transformData } from './utils/helper';
 
 function App() {
-  const dispatch = useDispatch(); 
-  const ref = useRef(null);
-
-  useEffect(() => {
-     const fetchInfo = async ()=>{
-      let response= await craftService.getAllMeetingInfo().catch(()=>{
-      });
-      console.log('response', response);
-      const { buildings, meetingsRooms, meetings } = transformData(response.Buildings);
-      
-      dispatch(setBuildings(buildings));
-      dispatch(setMeetingRoom(meetingsRooms));
-      dispatch(setMeeting(meetings));
-
-     }
-    
-     if(ref.current === null){
-       fetchInfo();
-       ref.current = true;
-     }
-  }, [])
-  
   return (
     <div className="App">
       <BrowserRouter>

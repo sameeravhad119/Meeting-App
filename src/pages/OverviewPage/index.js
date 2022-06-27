@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import Button from "../../components/Button";
 import Card from "../../components/Card";
 import { useNavigate } from 'react-router-dom';
-import { buildingSelector } from "../../slice/building";
-import { getCurrentTime, getTodaysDate, isTimeInBeetween } from "../../utils/helper";
+import { buildingSelector, setBuildings } from "../../slice/building";
+import { getCurrentTime, getTodaysDate, isTimeInBeetween, transformData } from "../../utils/helper";
 import { isEqual } from 'date-fns';
 import { setAvailbleRooms } from "../../slice/availbleRooms";
+import craftService from "../../services/craftService";
+import { setMeetingRoom } from "../../slice/meetingRoom";
+import { setMeeting } from "../../slice/meeting";
 
 const OverviewPage = () => {
   const navigate = useNavigate();
@@ -69,6 +72,27 @@ const OverviewPage = () => {
      dispatch(setAvailbleRooms(availableRooms));
      navigate('/addMeeting');
   }
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+     const fetchInfo = async ()=>{
+      let response= await craftService.getAllMeetingInfo().catch(()=>{
+      });
+      console.log('response', response);
+      const { buildings, meetingsRooms, meetings } = transformData(response.Buildings);
+      
+      dispatch(setBuildings(buildings));
+      dispatch(setMeetingRoom(meetingsRooms));
+      dispatch(setMeeting(meetings));
+
+     }
+    
+     if(ref.current === null){
+       fetchInfo();
+       ref.current = true;
+     }
+  }, [])
 
   return (
   <div>
