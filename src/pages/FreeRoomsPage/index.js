@@ -5,7 +5,7 @@ import { meetingSelector } from '../../slice/meeting';
 import { meetingRoomSelector } from '../../slice/meetingRoom';
 import { selectedMeetingRoomSelector, setSelectedMeetingRoom } from '../../slice/selectedMeetingRoom';
 import {format} from 'date-fns';
-import { areDatesEqual, getUniqueId } from '../../utils/helper';
+import { areDatesEqual, getUniqueId, isTimeInBeetween } from '../../utils/helper';
 import Card from '../../components/Card';
 import { buildingSelector } from '../../slice/building';
 import Heading from '../../components/Heading';
@@ -74,33 +74,73 @@ const FreeRoomsPage = () => {
   console.log('scheduledMeetingsInThatBuilding', scheduledMeetingsInThatBuilding);
 
   //to do
-  const availbleRooms= roomsFilterByBuildingId;
+  const availbleRooms= [];
+  
+  for(let i=0; i<roomsFilterByBuildingId.length; i++){
+    let room= roomsFilterByBuildingId[i];
+    let meetingsInthatRoom = scheduledMeetingsInThatBuilding.filter(meeting=>{
+      const {meetingRoomId, floor}= meeting;
+      const condition = room.meetingRoomId  === meetingRoomId && room.floor  === floor;
+      return condition;  
+    })
+
+    let flag= false;
+
+    for(let j=0;j<meetingsInthatRoom.length; j++){
+      let meeting= meetingsInthatRoom[j];
+      let startTimeCheck= isTimeInBeetween(meeting.startTime, meeting.endTime, selectedMeetingRoom.startTime);
+      let endTimeCheck= isTimeInBeetween(meeting.startTime, meeting.endTime, selectedMeetingRoom.endTime);
+      if(startTimeCheck || endTimeCheck){//meeting clash
+        flag= true;
+        break;
+      }
+    }
+
+    if(!flag){// this room is available for give time slot.
+      availbleRooms.push(room);
+    }
+
+  };
 
   return (
-    <div className='free-room-page-container'>
+    <div className="free-room-page-container">
       <Heading title={"Please select one of the Free Rooms"} />
-      {
-        availbleRooms.map(room=>{
-          const {meetingRoomName, buildingId, floor, meetingRoomId} = room;
-          const {buildingName}= buildings.find(building=>building.buildingId === buildingId) || {};
-          return(
-            <Card
-              key={meetingRoomName}
-              title={meetingRoomName}
-              subTitle1={buildingName}
-              subTitle2={`floor ${floor}`}
-              className={ cls({'active' :buildingId === selectedFreeRoom.buildingId && 
-                meetingRoomId === selectedFreeRoom.meetingRoomId &&
-                floor === selectedFreeRoom.floor})
-              }
-              onClick={e=> handleClick(room)}
-            />
-          )
-        })
-      }
-      <Button label={'Next'} onClick={handleNext} />
+      {availbleRooms.length === 0 && (
+        <p>
+          Sorry, No rooms are available . Please go back and select other
+          timeslot.{" "}
+        </p>
+      )}
+
+      {availbleRooms.length > 0 && (
+        <>
+          {availbleRooms.map((room) => {
+            const { meetingRoomName, buildingId, floor, meetingRoomId } = room;
+            const { buildingName } =
+              buildings.find(
+                (building) => building.buildingId === buildingId
+              ) || {};
+            return (
+              <Card
+                key={meetingRoomName}
+                title={meetingRoomName}
+                subTitle1={buildingName}
+                subTitle2={`floor ${floor}`}
+                className={cls({
+                  active:
+                    buildingId === selectedFreeRoom.buildingId &&
+                    meetingRoomId === selectedFreeRoom.meetingRoomId &&
+                    floor === selectedFreeRoom.floor,
+                })}
+                onClick={(e) => handleClick(room)}
+              />
+            );
+          })}
+          <Button label={"Next"} onClick={handleNext} />
+        </>
+      )}
     </div>
-  )
+  );
 }
 
 export default FreeRoomsPage;

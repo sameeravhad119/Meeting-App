@@ -1,5 +1,6 @@
 .button-container{
     padding: 0.5rem;
+    margin: 2rem;
 }
 .button-container button{
     background-color: rgb(94, 158, 242);
