@@ -1,4 +1,4 @@
-import { format, isEqual } from "date-fns";
+import { areIntervalsOverlapping, format, isEqual } from "date-fns";
 
 export const getTodaysDate = (dateFormat = "MM-dd-yyyy") => {
   const date = format(new Date(), dateFormat);
@@ -11,7 +11,7 @@ export const getCurrentTime = () => {
   hour = (hour === "24") ? "00" : hour;
   hour= hour.length=== 1 ? '0'+ hour : hour;
   min= min.length=== 1 ? '0'+ min : min;
-  return hour+':'+min;
+  return '09:28'//hour+':'+min;
 };
 
 export const areDatesEqual = (date1, date2)=>{
@@ -20,7 +20,8 @@ export const areDatesEqual = (date1, date2)=>{
   return isEqual(new Date(d1, m1, y1), new Date(d2, m2, y2))
 }
 
-export const isTimeInBeetween = (startTime,endTime,checkTime)=>{//10.30 , 11 , 10: 30  
+// 10 11  10
+export const isTimeInBeetween = (startTime,endTime,checkTime,ending=false)=>{//10.30 , 11 , 10: 30  
   const [sH,sM]= startTime.split(':').map(t=>Number(t));
   const [eH,eM]= endTime.split(':').map(t=>Number(t));
   const [cH,cM]= checkTime.split(':').map(t=>Number(t));
@@ -124,4 +125,37 @@ export const getUniqueId = ()=>{
   var max32 = Math.pow(2, 32) - 1
   var uuid = Math.floor(Math.random() * max32);
   return uuid;
+}
+
+export const isIntervalsOverlapping = (firstInterval,secondInterval)=>{
+  const [date1,month1,year1] = firstInterval.start.date.split('/');
+  const [hour1, min1]= firstInterval.start.time.split(':');
+
+  const [date2,month2,year2] = firstInterval.end.date.split('/');
+  const [hour2, min2]= firstInterval.end.time.split(':');
+
+  const [date3,month3,year3] = secondInterval.start.date.split('/');
+  const [hour3, min3]= secondInterval.start.time.split(':');
+
+  const [date4,month4,year4] = secondInterval.end.date.split('/');
+  const [hour4, min4]= secondInterval.end.time.split(':');
+
+  let fStart= new Date(year1, month1-1, date1, hour1, min1)
+  let fEnd=  new Date(year2, month2-1, date2, hour2, min2)
+  
+  let sStart= new Date(year3, month3-1, date3, hour3, min3);
+  let sEnd=  new Date(year4, month4-1, date4, hour4, min4);
+  
+  console.log('fStart', fStart);
+  console.log('fEnd', fEnd);
+
+  console.log('sStart', sStart);
+  console.log('sEnd', sEnd);
+
+  let isOverlap= areIntervalsOverlapping(
+    { start: fStart, end: fEnd},
+    { start: sStart, end: sEnd},
+  );
+  return isOverlap;
+
 }

@@ -5,7 +5,7 @@ import { meetingSelector } from '../../slice/meeting';
 import { meetingRoomSelector } from '../../slice/meetingRoom';
 import { selectedMeetingRoomSelector, setSelectedMeetingRoom } from '../../slice/selectedMeetingRoom';
 import {format} from 'date-fns';
-import { areDatesEqual, getUniqueId, isTimeInBeetween } from '../../utils/helper';
+import { areDatesEqual, getUniqueId, isIntervalsOverlapping, isTimeInBeetween } from '../../utils/helper';
 import Card from '../../components/Card';
 import { buildingSelector } from '../../slice/building';
 import Heading from '../../components/Heading';
@@ -88,9 +88,20 @@ const FreeRoomsPage = () => {
 
     for(let j=0;j<meetingsInthatRoom.length; j++){
       let meeting= meetingsInthatRoom[j];
+      console.log('meeting check', meeting);
+      let isOverlap= isIntervalsOverlapping(
+        {
+        start: {date: meeting.date, time:meeting.startTime},
+        end: {date: meeting.date, time:meeting.endTime}
+        },
+        {
+        start: {date: meeting.date, time:selectedMeetingRoom.startTime},
+        end: {date: meeting.date, time:selectedMeetingRoom.endTime}
+        });
       let startTimeCheck= isTimeInBeetween(meeting.startTime, meeting.endTime, selectedMeetingRoom.startTime);
       let endTimeCheck= isTimeInBeetween(meeting.startTime, meeting.endTime, selectedMeetingRoom.endTime);
-      if(startTimeCheck || endTimeCheck){//meeting clash
+      // if(startTimeCheck || endTimeCheck){//meeting clash
+      if(isOverlap){//meeting clash
         flag= true;
         break;
       }

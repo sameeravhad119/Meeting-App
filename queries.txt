@@ -1,0 +1,85 @@
+mutation MeetingRoom{
+  MeetingRoom(
+    id :2,
+    name : "Ganga",
+    buildingId: 1,
+    floor: 5
+  ){
+    id
+  }
+}
+
+mutation MeetingRoom{
+  MeetingRoom(
+    id :3,
+    name : "Banglore",
+    buildingId: 2,
+    floor: 7
+  ){
+    id
+  }
+}
+mutation MeetingRoom{
+  MeetingRoom(
+    id :4,
+    name : "Mumbai",
+    buildingId: 2,
+    floor: 5
+  ){
+    id
+  }
+}
+_________________________________________________________________________________
+Meetings
+
+mutation Meeting {
+ Meeting(
+  id: 1,
+  meetingRoomId: 1,
+  startTime: "09:00",
+  endTime: "10:00",
+  date: "29/06/2022",
+  title: "Meeting 1"
+){
+  id
+}
+}
+
+mutation Meeting {
+ Meeting(
+  id: 1,
+  meetingRoomId: 2,
+  startTime: "10:00",
+  endTime: "11:00",
+  date: "29/06/2022",
+  title: "Meeting 2"
+){
+  id
+}
+}
+
+mutation Meeting {
+ Meeting(
+  id: 1,
+  meetingRoomId: 3,
+  startTime: "09:00",
+  endTime: "10:00",
+  date: "29/06/2022",
+  title: "Meeting 3"
+){
+  id
+}
+}
+
+mutation Meeting {
+ Meeting(
+  id: 1,
+  meetingRoomId: 4,
+  startTime: "11:00",
+  endTime: "12:00",
+  date: "29/06/2022",
+  title: "Meeting 4"
+){
+  id
+}
+}
