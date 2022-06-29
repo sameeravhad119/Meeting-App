@@ -11,7 +11,7 @@ export const getCurrentTime = () => {
   hour = (hour === "24") ? "00" : hour;
   hour= hour.length=== 1 ? '0'+ hour : hour;
   min= min.length=== 1 ? '0'+ min : min;
-  return '09:28'//hour+':'+min;
+  return hour+':'+min;
 };
 
 export const areDatesEqual = (date1, date2)=>{
