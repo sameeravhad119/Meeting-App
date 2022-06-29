@@ -21,7 +21,7 @@ const OverviewPage = () => {
   const totalBuildings= buildings.length;
   const totalRooms= meetingRooms.length;
   const totalMeetings= meetings.length;
-  //to do
+  
   const today= getTodaysDate('dd/MM/yyyy');
   const todaysMeetings= meetings.filter(meeting=> {
     const [d1, m1, y1] = today.split('/');
